@@ -418,10 +418,12 @@ class BRNDTS:
             - color_correction (str): Mode of color correction:
                             - histogram: Matches the histogram of the advertisement with the background image.
                             - color_transf: Adjusts the colors using the mean and standard deviation of the background image.
+            - smoothing (float): Matches the ad apparent resolution to the source's and smoothes.
             - mode (str): Different mode of applications of the ad:
                             - area: Looks for the location with the bigger area
                             - random: Looks for a random location of the list of locations
                             - total: Applies the ad to all the locations in the list.
+            - save (bool): If true, saves the picture to the current working directory.
         Returns:
             - image (numpy.ndarray): Final image with all the changes.
         """
