@@ -1,0 +1,6 @@
+python>=3.10
+opencv-python-headless==4.8.0.74
+torch
+numpy
+ultralytics==8.0.230
+matplotlib
