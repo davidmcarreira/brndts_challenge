@@ -1,10 +1,10 @@
-MODEL_PATH = 'models/yolov8s-oiv7.pt' #Path to the detection model
-SEG_MODEL_PATH = 'models/yolov8s-seg.pt' #Path to the segmentation model
+MODEL_PATH = 'brndts_challenge/models/yolov8s-oiv7.pt' #Path to the detection model
+SEG_MODEL_PATH = 'brndts_challenge/models/yolov8s-seg.pt' #Path to the segmentation model
 DEVICE = 'gpu' #Where the iamges are processed
 
 #Where the images are stored
-SOURCE = 'source/image.png' 
-ADVERT = 'source/advert.jpeg'
+SOURCE = 'brndts_challenge/source/image.png' 
+ADVERT = 'brndts_challenge/source/advert.jpeg'
 
 #_edge_detection(image, alpha, beta, sp, cr, t, set_px)
 ALPHA = 2.5 #Contrast adjustment
