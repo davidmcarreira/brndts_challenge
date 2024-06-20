@@ -159,9 +159,9 @@ class BRNDTS:
         dest_height = int(warp_boxes[idx][0][1]-warp_boxes[idx][1][1])
         
         transform_matrix = cv2.getPerspectiveTransform(src_points, dest_points) #Transformation matrix that warps the image
-        advert_warped = cv2.warpPerspective(advert_resized, transform_matrix, (dest_width, dest_height))
+        
 
-        return advert_warped
+        return transform_matrix, dest_width, dest_height
     
     
     
@@ -455,7 +455,8 @@ class BRNDTS:
                 advert_height, advert_width, _ = advert_resized.shape
 
                 if warp: #Applies the perspective warp
-                    advert_warped = BRNDTS._warp_advert(i, x, y, advert_height, advert_width, warp_boxes) #Applies the perspective correction
+                    transform_matrix, dest_width, dest_height = BRNDTS._warp_advert(i, x, y, advert_height, advert_width, warp_boxes) #Applies the perspective correction
+                    advert_warped = cv2.warpPerspective(advert_resized, transform_matrix, (dest_width, dest_height))
 
                     image[y_min+y:y_min+y+advert_height, x_min+x:x_min+x+advert_width] = advert_warped #Applies the ad to the backgroudn image
 
@@ -500,7 +501,8 @@ class BRNDTS:
             advert_height, advert_width, _ = advert_resized.shape
 
             if warp:
-                advert_warped = BRNDTS._warp_advert(i, x, y, advert_height, advert_width, warp_boxes)
+                transform_matrix, dest_width, dest_height = BRNDTS._warp_advert(i, x, y, advert_height, advert_width, warp_boxes) #Applies the perspective correction
+                advert_warped = cv2.warpPerspective(advert_resized, transform_matrix, (dest_width, dest_height))
                 image[y_min+y:y_min+y+advert_height, x_min+x:x_min+x+advert_width] = advert_warped
 
             if bordered:
